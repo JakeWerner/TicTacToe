@@ -7,8 +7,10 @@ class TicTacToe{
     public:
         void CreateBoard();
         void DisplayBoard();
+        void PlaceMarker(int arr[]);
     private:
         int board[3][3];
+        int player;
 };
 
 #endif
@@ -36,6 +38,17 @@ void TicTacToe::DisplayBoard(){
         }
         cout << "|" <<endl;
 
+    }
+}
+
+void TicTacToe::PlaceMarker(int arr[]){
+    int row = arr[0];
+    int col = arr[1];
+    if(player == 1){
+        board[row][col] = 1;
+    }
+    if(player == 2){
+        board[row][col] = 2;
     }
 }
 
