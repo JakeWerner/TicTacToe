@@ -8,8 +8,10 @@ class TicTacToe{
         void CreateBoard();
         void DisplayBoard();
         int *GetPlayerChoice();
+        void PlaceMarker(int arr[]);
     private:
         int board[3][3];
+        int player;
 };
 
 #endif
@@ -148,8 +150,17 @@ int *TicTacToe::GetPlayerChoice(){
             break;
         }
     }
+}
 
-
+void TicTacToe::PlaceMarker(int arr[]){
+    int row = arr[0];
+    int col = arr[1];
+    if(player == 1){
+        board[row][col] = 1;
+    }
+    if(player == 2){
+        board[row][col] = 2;
+    }
 }
 
 int main(){
