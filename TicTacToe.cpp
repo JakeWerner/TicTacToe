@@ -6,6 +6,7 @@ using namespace std;
 class TicTacToe{
     public:
         void CreateBoard();
+        void DisplayBoard();
     private:
         int board[3][3];
 };
@@ -20,7 +21,25 @@ void TicTacToe::CreateBoard(){
     }
 }
 
+void TicTacToe::DisplayBoard(){
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            if(board[i][j] == 0){
+                cout << " |  ";
+            }
+            if(board[i][j] == 1){
+                cout << " | X";
+            }
+            if(board[i][j] == 2){
+                cout << " | O";
+            }
+        }
+        cout << " |" << endl;
+    }
+}
+
 int main(){
     TicTacToe ttc;
     ttc.CreateBoard();
+    ttc.DisplayBoard();
 }
