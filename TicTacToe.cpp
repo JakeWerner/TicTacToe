@@ -7,6 +7,7 @@ class TicTacToe{
     public:
         void CreateBoard();
         void DisplayBoard();
+        int *GetPlayerChoice();
         void PlaceMarker(int arr[]);
     private:
         int board[3][3];
@@ -38,6 +39,116 @@ void TicTacToe::DisplayBoard(){
         }
         cout << "|" <<endl;
 
+    }
+}
+
+int *TicTacToe::GetPlayerChoice(){
+    int input;
+    bool loop = true;
+    static int arr[2];
+    while(loop){
+        cout << "Select where you want to play" << endl;
+        cout << "1 | 2 | 3" << endl;
+        cout << "4 | 5 | 6" << endl;
+        cout << "7 | 8 | 9" << endl;
+        cout << "Input: ";
+        cin >> input;
+
+        switch (input){
+            case 1:
+                if(board[0][0] == 0){
+                    arr[0] = 0;
+                    arr[1] = 0;
+                    return arr;
+                }
+                else{
+                    cout << "ERROR: Cannot play at that spot. Try again" << endl;
+                }
+            break;
+            case 2:
+                if(board[0][1] == 0){
+                    arr[0] = 0;
+                    arr[1] = 1;
+                    return arr;
+                }
+                else{
+                    cout << "ERROR: Cannot play at that spot. Try again" << endl;
+                }
+            break;
+            case 3:
+                if(board[0][2] == 0){
+                    arr[0] = 0;
+                    arr[1] = 2;
+                    return arr;
+                }
+                else{
+                    cout << "ERROR: Cannot play at that spot. Try again" << endl;
+                }
+            break;
+            case 4:
+                if(board[1][0] == 0){
+                    arr[0] = 1;
+                    arr[1] = 0;
+                    return arr;
+                }
+                else{
+                    cout << "ERROR: Cannot play at that spot. Try again" << endl;
+                }
+            break;
+            case 5:
+                if(board[1][1] == 0){
+                    arr[0] = 1;
+                    arr[1] = 1;
+                    return arr;
+                }
+                else{
+                    cout << "ERROR: Cannot play at that spot. Try again" << endl;
+                }
+            break;
+            case 6:
+                if(board[1][2] == 0){
+                    arr[0] = 1;
+                    arr[1] = 2;
+                    return arr;
+                }
+                else{
+                    cout << "ERROR: Cannot play at that spot. Try again" << endl;
+                }
+            break;
+            case 7:
+                if(board[2][0] == 0){
+                    arr[0] = 2;
+                    arr[1] = 0;
+                    return arr;
+                }
+                else{
+                    cout << "ERROR: Cannot play at that spot. Try again" << endl;
+                }
+            break; 
+            case 8:
+                if(board[2][1] == 0){
+                    arr[0] = 2;
+                    arr[1] = 1;
+                    return arr;
+                }
+                else{
+                    cout << "ERROR: Cannot play at that spot. Try again" << endl;
+                }
+            break;
+            case 9:
+                if(board[2][2] == 0){
+                    arr[0] = 2;
+                    arr[1] = 2;
+                    return arr;
+                }
+                else{
+                    cout << "ERROR: Cannot play at that spot. Try again" << endl;
+                }
+            break;
+            default:
+                cout << "ERROR: Not a valid move. Try again." << endl;
+            break;
+        }
     }
 }
 
