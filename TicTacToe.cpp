@@ -8,7 +8,7 @@ class TicTacToe{
         void CreateBoard();
         void DisplayBoard();
         int *GetPlayerChoice();
-        void PlaceMarker(int arr[]);
+        int PlaceMarker(int *arr);
     private:
         int board[3][3];
         int player;
@@ -22,19 +22,20 @@ void TicTacToe::CreateBoard(){
             board[i][j] = 0;
         }
     }
+    player = 1;
 }
 
 void TicTacToe::DisplayBoard(){
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             if(board[i][j] == 0){
-                cout << "| ⬜️ ";
+                cout << " | ⬜️ ";
             }
             if(board[i][j] == 1){
-                cout << "| ✖️️ ";
+                cout << " | ✖️️ ";
             }
             if(board[i][j] == 2){
-                cout << "| 🔘️️ ";
+                cout << " | 🔘️️ ";
             }
         }
         cout << "|" <<endl;
@@ -53,6 +54,8 @@ int *TicTacToe::GetPlayerChoice(){
         cout << "7 | 8 | 9" << endl;
         cout << "Input: ";
         cin >> input;
+        cout << "-----------------" << endl;
+        
 
         switch (input){
             case 1:
@@ -152,19 +155,35 @@ int *TicTacToe::GetPlayerChoice(){
     }
 }
 
-void TicTacToe::PlaceMarker(int arr[]){
+int TicTacToe::PlaceMarker(int arr[]){
     int row = arr[0];
     int col = arr[1];
     if(player == 1){
         board[row][col] = 1;
+        player = 2;
+        return 2;
     }
     if(player == 2){
         board[row][col] = 2;
+        player = 1;
+        return 1;
     }
 }
 
 int main(){
     TicTacToe ttc;
     ttc.CreateBoard();
+    int turn = 0;
+    int move[2];
+    while (turn < 9){
+        ttc.DisplayBoard();
+        ttc.PlaceMarker(ttc.GetPlayerChoice());
+        turn++;
+    }
+    cout << "---------------------" << endl;
+    cout << "       END GAME      " << endl;
+    cout << "---------------------" << endl;
+    cout << "-FINAL BOARD-" << endl;
     ttc.DisplayBoard();
+    return 0;
 }
