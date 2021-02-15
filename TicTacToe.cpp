@@ -25,16 +25,17 @@ void TicTacToe::DisplayBoard(){
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             if(board[i][j] == 0){
-                cout << " |  ";
+                cout << "| ⬜️ ";
             }
             if(board[i][j] == 1){
-                cout << " | X";
+                cout << "| ✖️️ ";
             }
             if(board[i][j] == 2){
-                cout << " | O";
+                cout << "| 🔘️️ ";
             }
         }
-        cout << " |" << endl;
+        cout << "|" <<endl;
+
     }
 }
 
